@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .login-form{
+            margin-top:120px;
+            margin-left:250px;
+        }
+        .emaillabel{
+            
+            margin-left:50px;
+            margin-right:150px;
+            font-size:20px;
+            font-weight: 500px;
+        }
+        .passwordlabel{
+            
+            margin-left:50px;
+            margin-right:120px;
+            font-size:20px;
+            font-weight: 500px;
+        }
+        #login{
+            margin-left:100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-form" style="border:1px solid;background-color:#CF9FFF;border-radius:5px;width:60%;height:400px;border-color:blueviolet;">
+        <h1 style="text-align:center;margin-bottom:50px;margin-top:50px;">Login Form</h1>
+        <form action="fun3" onsubmit="return login_fun()">
+            <label for="" class="emailerror2" id="emailerror2" style="color:red;margin-left:280px;">Please enter email address</label><br>
+            <label for="" class="emaillabel"><b>Email*</b></label>&nbsp;&nbsp;&nbsp;
+            <input type="text" id="email2" style="border-radius:15px;background-color: #CF9FFF;width:460px;border-color:#7600a9;"><br><br>
+            
+            <label for="" class="passworderror2" id="passworderror2" style="color:red;margin-left:280px;">Please enter password</label><br>
+            <label for="" class="passwordlabel"><b>Password*</b></label>&nbsp;&nbsp;&nbsp;
+            <input type="text" id="password2" style="border-radius:15px;background-color: #CF9FFF;width:460px;border-color:#7600a9;"><br><br>
+            <button style="background-color:#9400d3;color:white;margin-left:200px;margin-top:20px;border-color: blueviolet;width:130px;height:40px;">Login</button>
+
+
+
+        </form>
+
+    </div>
+    <script>
+        function login_fun(){
+            var emaillogin=document.getElementById('email2').value;
+             
+            var passwordlogin=document.getElementById('password2').value;
+
+            var emailcheck2=/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+            if(emaillogin==""){
+                document.getElementById('emailerror2').innerHTML="**Please enter email id";
+                return false;
+            }
+            else{
+                if(emaillogin==localStorage.getItem("email_id")){
+                document.getElementById('emailerror2').innerHTML="";
+               
+
+                }else{
+                    document.getElementById('emailerror2').innerHTML="** Email id is not matching";
+                    return false;
+                }
+            }
+
+            if(passwordlogin==""){
+                document.getElementById('passworderror2').innerHTML="**Please enter password";
+                return false;
+            }
+            else{
+                if(passwordlogin==localStorage.getItem("pass")){
+                document.getElementById('passworderror2').innerHTML="";
+                // document.getElementById('firstnameerror').style.display=none;
+
+                }else{
+                    document.getElementById('passworderror2').innerHTML="**Password is not is not matching";
+                    return false;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
